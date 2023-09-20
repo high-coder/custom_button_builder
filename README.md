@@ -11,8 +11,6 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
 # Custom Button Builder
 
 Custom Button Builder lets you create beautiful 3d buttons, icon buttons, you can include your assets images as well, main focus is to create 3d buttons.
@@ -25,7 +23,7 @@ dependencies:
 ```
 2. Import the package and use it in your Flutter App.
 ```dart
-import 'package:custom_button_builder/custom_button.dart';
+import 'package:custom_button_builder/custom_button_builder.dart';
 ```
 # Demo
 <img src='https://raw.githubusercontent.com/high-coder/public_images/main/images/buttons.gif' width=276px style="display:block; margin-left:auto;margin-right:auto;">
