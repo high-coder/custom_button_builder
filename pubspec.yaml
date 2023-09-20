@@ -1,10 +1,10 @@
 name: custom_button_builder
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
+homepage: https://github.com/high-coder/custom_button_builder
 
 environment:
-  sdk: '>=3.2.0-27.0.dev <4.0.0'
+  sdk: '>=2.12.0 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:

@@ -91,8 +91,8 @@ class CustomButton extends StatefulWidget {
   final bool animate;
 
   const CustomButton({
+    Key? key,
     this.pressed = Pressed.notPressed,
-    super.key,
     this.vibrate = true,
     this.shadowColor,
     this.crossAxis = CrossAxisAlignment.start,
@@ -129,7 +129,8 @@ class CustomButton extends StatefulWidget {
                 assetPath == null &&
                 iconWidget == null)),
         assert((!(animate == true && height == null))),
-        assert(!((pressed == Pressed.pressed && animate == false)));
+        assert(!((pressed == Pressed.pressed && animate == false))),
+        super(key: key);
 
   @override
   State<CustomButton> createState() => _CustomButtonState();
@@ -258,7 +259,8 @@ class _CustomButtonState extends State<CustomButton>
                     child: Material(
                       type: MaterialType.transparency,
                       child: InkWell(
-                        onTapDown: widget.onPressed != null
+                        onTapDown: !(widget.pressed == Pressed.pressed) &&
+                                widget.onPressed != null
                             ? (value) {
                                 if (widget.animate) {
                                   setState(() {
@@ -281,7 +283,8 @@ class _CustomButtonState extends State<CustomButton>
                         },
                         borderRadius:
                             BorderRadius.circular(widget.borderRadius ?? 0),
-                        onTapUp: widget.onPressed != null
+                        onTapUp: !(widget.pressed == Pressed.pressed) &&
+                                widget.onPressed != null
                             ? (_) async {
                                 bool condition = true;
 
@@ -380,25 +383,23 @@ class _CustomButtonState extends State<CustomButton>
           }
         },
       ),
-      Expanded(
-        child: Column(
-          crossAxisAlignment: widget.crossAxis,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child: widget.child ??
-                  Text(
-                    widget.title ?? "",
-                    style: const TextStyle(color: Colors.white),
-                  ),
-            ),
-            widget.subtitle != null
-                ? Flexible(
-                    child: widget.subtitle!,
-                  )
-                : Container()
-          ],
-        ),
+      Column(
+        crossAxisAlignment: widget.crossAxis,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: widget.child ??
+                Text(
+                  widget.title ?? "",
+                  style: const TextStyle(color: Colors.white),
+                ),
+          ),
+          widget.subtitle != null
+              ? Flexible(
+                  child: widget.subtitle!,
+                )
+              : Container()
+        ],
       )
     ];
   }

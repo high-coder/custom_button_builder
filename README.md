@@ -13,27 +13,74 @@ and the Flutter guide for
 
 TODO: Put a short description of the package here that helps potential users
 know whether this package might be useful for them.
+# Custom Button Builder
 
-## Features
+Custom Button Builder lets you create beautiful 3d buttons, icon buttons, you can include your assets images as well, main focus is to create 3d buttons.
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## Installation
+1. Add the latest version of package to your pubspec.yaml (and run `dart pub get`):
+```yaml
+dependencies:
+  custom_button_builder: ^0.0.1
+```
+2. Import the package and use it in your Flutter App.
+```dart
+import 'package:custom_button_builder/custom_button.dart';
+```
+# Demo
+<img src='https://raw.githubusercontent.com/high-coder/public_images/main/images/buttons.gif' width=276px style="display:block; margin-left:auto;margin-right:auto;">
 
-## Getting started
+## Get Started
+### ThreeD Animating button
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+<img src='https://raw.githubusercontent.com/high-coder/public_images/main/images/button1.gif' width=276px style="display:block; margin-left:auto;margin-right:auto;"/>
+<br/>
 
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
 
 ```dart
-const like = 'sample';
+CustomButton(
+    width: 300,
+    backgroundColor: Colors.white,
+    isThreeD: true,
+    height: 50,
+    borderRadius: 25,
+    animate: true,
+    margin: const EdgeInsets.all(10),
+    onPressed: () {},
+    child: Text(
+        "Continue",
+    ),
+),
 ```
 
-## Additional information
+### Pressed and unpressed
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+<img src='https://github.com/high-coder/public_images/blob/main/images/pressed_buttons.gif?raw=true' width=276px style="display:block; margin-left:auto;margin-right:auto;"/>
+<br/>
+
+```dart
+CustomButton(
+    width: 100,
+    backgroundColor: Colors.blue,
+    height: 100,
+    borderRadius: 100,
+    isThreeD: true,
+    animate: true,
+    shadowColor: Colors.red,
+    pressed: Pressed.pressed,
+    margin: const EdgeInsets.all(10),
+    onPressed: () {},
+    child: const Icon(
+    Icons.abc,
+    size: 50,
+    color: Colors.white,
+    ),
+),
+```
+
+Using the Pressed.pressed value the button will be disabled, you can combine your choice of statemangement solution and enable one of the buttons and the rest can be disabled giving a look of knobs
+
+
+
+## Additional information
+Checkout the example on github
