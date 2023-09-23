@@ -1,6 +1,6 @@
 name: custom_button_builder
 description: Custom Button Builder package for building beautiful buttons
-version: 0.0.1
+version: 0.0.4
 homepage: https://github.com/high-coder/custom_button_builder
 
 environment:
